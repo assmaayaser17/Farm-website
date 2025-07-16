@@ -30,23 +30,52 @@
 
 
 
+// namespace App\Http\Controllers;
+
+// use Illuminate\Http\Request;
+// use App\Models\Category;
+
+// class HomeController extends Controller
+// {
+//     // public function __construct()
+//     // {
+//     //     $this->middleware('auth'); 
+//     // }
+
+
+// public function index()
+// {
+//     $categories = Category::all();
+//     return view('home', compact('categories'));
+// }
+
+// }
+
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware('auth'); 
-    // }
+    public function index()
+    {
+        $categories = Category::all();
+        return view('home', compact('categories'));
+    }
+    public function switch($locale)
+    {
+        if (!in_array($locale, ['en', 'ar'])) {
+            abort(400, 'Invalid language');
+        }
 
-
-public function index()
-{
-    $categories = Category::all();
-    return view('home', compact('categories'));
-}
-
+        App::setLocale($locale);
+        Session::put('locale', $locale);
+        
+        return redirect()->back();
+    }
+    
 }

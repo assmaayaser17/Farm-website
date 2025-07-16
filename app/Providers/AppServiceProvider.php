@@ -22,8 +22,19 @@ class AppServiceProvider extends ServiceProvider
      * Bootstrap any application services.
      */
     public function boot(): void
+    
     {
-        //    App::setLocale(Session::get('locale', config('app.locale')));
-        //
+       if (!session()->get('locale')) {
+            session()->put('locale', 'ar');
+        }
+
+        $lang = "";
+        $languages = ['ar', 'en'];
+        $lang = request()->header('lang');
+        if ($lang) {
+            if (in_array($lang, $languages)) {
+                App::setLocale($lang);
+            }
+        }
     }
 }

@@ -1,53 +1,51 @@
 @extends('layouts.master')
 
 @section('content')
+<body>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Products</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.0/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-gray-100 p-10">
+<section class="min-h-screen bg-[url('/images/products/servbg.jpg')] bg-cover bg-center px-4 py-16 relative">
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/50 z-0"></div>
 
-    <h1 class="text-4xl font-bold text-center text-green-600 underline underline-offset-4 decoration-2 decoration-green-600 m-7">
-        Products in {{ $category->name }}
-    </h1>
+  <div class="relative z-10 max-w-6xl mx-auto">
+    <!-- Title -->
+    <h2 class="text-4xl md:text-5xl font-bold text-center text-green-100 mt-8">Products</h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <!-- Products Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
         @foreach ($category->products as $product)
-            <div class="bg-gray-100 flex flex-col justify-center items-center shadow-md p-4 rounded-md hover:shadow-lg transition">
-                @if($product->imagepath)
-                    <img src="{{ asset($product->imagepath) }}" alt="{{ $product->name }}" class="w-50 h-50 object-cover rounded mb-3">
+            <div class="bg-white/30 backdrop-blur-md rounded-xl shadow-md p-6 text-center">
+                         @if($product->imagepath)
+                    <img src="{{ asset($product->imagepath) }}" 
+                         alt="{{ $product->name }}" 
+                         class="w-52 h-52 rounded-full mx-auto mb-4 object-cover border border-gray-300 shadow-sm">
                 @endif
 
-                <h2 class="font-semibold text-green-600 text-2xl mb-3 underline underline-offset-4 decoration-2 decoration-green-600">
-                    {{ $product->name }}
-                </h2>
+                <h3 class="text-xl font-bold text-white mb-2">{{ $product->name }}</h3>
 
-                <div class="text-md font-medium text-black space-y-1">
+                <div class="text-base text-gray-300 space-y-1">
                     @if($product->season)
-                        <p><span class="font-medium">Season:</span> {{ $product->season }}</p>
+                        <p><span class="font-semibold">Season:</span> {{ $product->season }}</p>
                     @endif
                     @if($product->variety)
-                        <p><span class="font-medium">Variety:</span> {{ $product->variety }}</p>
+                        <p><span class="font-semibold">Variety:</span> {{ $product->variety }}</p>
                     @endif
                     @if($product->specification)
-                        <p><span class="font-medium">Specification:</span> {{ $product->specification }}</p>
+                        <p><span class="font-semibold">Specification:</span> {{ $product->specification }}</p>
                     @endif
                     @if($product->sizes)
-                        <p><span class="font-medium">Sizes:</span> {{ $product->sizes }}</p>
+                        <p><span class="font-semibold">Sizes:</span> {{ $product->sizes }}</p>
                     @endif
                     @if($product->package)
-                        <p><span class="font-medium">Package:</span> {{ $product->package }}</p>
+                        <p><span class="font-semibold">Package:</span> {{ $product->package }}</p>
                     @endif
                 </div>
             </div>
         @endforeach
-</div>
+    </div>
+  </div>
+</section>
 
 </body>
-</html>
-
-
 @endsection
+
