@@ -10,13 +10,16 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view('categories', compact('categories'));
+        return view('categories.index', compact('categories'));
     }
 
+
     public function show($id)
-    {
-        $category = Category::with('products')->findOrFail($id);
-        return view('products', compact('category'));
-    }
+{
+    $category = Category::with('products')->findOrFail($id);
+    $products = $category->products;
+
+    return view('products.index', compact('products'));
+}
 }
 

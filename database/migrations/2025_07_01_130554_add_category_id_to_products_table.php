@@ -10,19 +10,28 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
-        Schema::table('products', function (Blueprint $table) {
-               $table->foreignId('category_id')->nullable()->constrained()->onDelete('cascade');
-        });
-    }
+{
+    Schema::table('products', function (Blueprint $table) {
+
+        if (!Schema::hasColumn('products', 'category_id')) {
+            $table->foreignId('category_id')
+                ->nullable()
+                ->constrained()
+                ->onDelete('cascade');
+        }
+    });
+}
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::table('products', function (Blueprint $table) {
-            //
-        });
+         Schema::table('products', function (Blueprint $table) {
+        if (Schema::hasColumn('products', 'category_id')) {
+            $table->dropForeign(['category_id']);
+            $table->dropColumn('category_id');
+        }
+    });
     }
 };

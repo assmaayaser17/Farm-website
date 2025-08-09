@@ -19,6 +19,7 @@
 </head>
 
 <section>
+  {{-- Hero section --}}
   <div class="relative w-full min-h-screen sm:h-screen bg-center bg-cover">
     <!-- Background Slider -->
     <div id="slider" class="absolute inset-0 z-0">
@@ -82,10 +83,10 @@
             <i class="fas fa-map-marker-alt"></i>
         </a>
     </div>
-</div>
-</div>
-</div>
-<script>
+  </div>
+  </div>
+  </div>
+  <script>
     const slides = document.querySelectorAll("#slider > div");
     let current = 0;
     setInterval(() => {
@@ -95,89 +96,170 @@
         slides[current].classList.remove("opacity-0");
         slides[current].classList.add("opacity-100");
     }, 3000);
-</script>
+  </script>
 
-  {{-- About Section --}}
-  <div id="About" class="py-16 px-4 sm:px-8 flex justify-center">
+   {{-- About Section --}}
+   <div id="About" class="py-16 px-4 sm:px-8 flex justify-center">
     <div class="container max-w-6xl mx-auto bg-gray-100 border border-gray-300 shadow-xl rounded-xl p-10 flex flex-col md:flex-row items-center gap-8">
+        
+       {{-- Text --}}
         <div class="w-full md:w-2/3 flex flex-col gap-6 text-center md:text-left" data-aos="fade-right">
-            <h2 class="text-4xl sm:text-5xl font-bold text-green-600 mb-4">{{ __('messages.about_title') }}</h2>
+            @if($about)
+  
+            {{-- Title --}}
+            <h2 class="text-4xl sm:text-5xl font-bold text-green-600 mb-4">
+                {{ $about->title }}
+            </h2>
+
+            {{-- Intro --}}
             <p class="text-gray-700 text-base leading-relaxed">
-                <span class="text-green-600 text-xl font-bold">{{ __('messages.greenya') }}</span> {{ __('messages.about_intro') }}
+                <span class="text-green-600 text-xl font-bold">Greenya</span> 
+                {{ $about->intro }}
             </p>
+
+            {{--  Details --}}
             <p class="text-gray-700 text-base leading-relaxed">
-                {{ __('messages.about_details') }}
+                {{ $about->details }}
             </p>
+            @endif
+
+            {{-- Admin --}}
+            <div class="flex gap-4">
+
+                {{-- Read more --}}
             <a href="{{ route('about') }}"
                class="w-fit bg-yellow-400 hover:bg-yellow-500 text-green-600 font-semibold px-6 py-2 rounded-lg transition duration-200">
-                {{ __('messages.read_more') }}
+                Read More
             </a>
+                  @auth
+                @if(auth()->user()->is_admin)
+                    <a href="{{ route('abouts.edit', $about->id) }}" 
+                       class="bg-green-600 hover:bg-yellow-500 w-28 flex justify-center items-center  text-white px-4 py-2 rounded">
+                        Update
+                    </a>
+                @endif
+            @endauth
+
+
+            </div>
+        
         </div>
 
+        {{-- Image --}}
         <div class="w-full md:w-1/3 flex justify-center" data-aos="fade-left">
-            <img src="{{ asset('images/products/apple.jpg') }}" alt="About Greenya Egypt"
-                 class="w-60 h-60 rounded-full shadow-lg object-cover" />
+            {{-- @if($about->image) --}}
+            @if($about && $about->image)
+                <img src="{{ asset('storage/'.$about->image) }}" 
+                     alt="{{ $about->title }}"
+                     class="w-60 h-60 rounded-full shadow-lg object-cover" />
+            @else
+                <img src="{{ asset('images/products/apple.jpg') }}" 
+                     alt="Default Image"
+                     class="w-60 h-60 rounded-full shadow-lg object-cover" />
+            @endif
         </div>
     </div>
-  </div>
-
+   </div>
+ 
   {{-- Services Section --}}
-  <div id="services" class="py-16 bg-gray-50">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="bg-white border border-gray-200 shadow-lg rounded-lg overflow-hidden flex flex-col lg:flex-row items-center">
-        <div class="lg:w-1/3 flex justify-center items-center p-6" data-aos="fade-right">
-          <img src="{{ asset('images/products/avocato.jpg') }}" alt="Our Services"
-               class="w-52 h-52 object-cover rounded-full shadow-md">
-        </div>
+   <div id="services" class="py-16 px-4 sm:px-8 flex justify-center">
+   <div class="container max-w-6xl mx-auto bg-gray-100 border border-gray-300 rounded-xl shadow-2xl p-10 flex flex-col md:flex-row items-center gap-8">
 
-        <div class="lg:w-2/3 w-full p-8" data-aos="fade-left">
-          <h2 class="text-4xl font-bold text-green-600 mb-4 uppercase">{{ __('messages.services_title') }}</h2>
-          <div class="flex flex-col gap-4 text-gray-700">
-            <div>
-              <h4 class="text-2xl font-semibold text-green-600 mb-1">{{ __('messages.core_services_title') }}</h4>
-              <p class="text-base leading-relaxed">{!! __('messages.core_services_content') !!}</p>
-            </div>
-            <div>
-              <h4 class="text-2xl font-semibold text-green-600 mb-1">{{ __('messages.logistics_title') }}</h4>
-              <p class="text-base leading-relaxed">{{ __('messages.logistics_content') }}</p>
-            </div>
-            <a href="{{ route('services') }}"
-               class="w-fit bg-yellow-400 hover:bg-yellow-500 text-green-600 font-semibold px-6 py-2 rounded-lg transition duration-200">
-              {{ __('messages.read_more') }}
+    {{-- Image --}}
+    <div class="w-full md:w-1/3 flex justify-center items-center" data-aos="fade-right">
+      {{-- @if($service->image) --}}
+      @if($service && $service->image)
+        <img src="{{ asset('storage/'.$service->image) }}" alt="Our Services" class="w-60 h-60 object-cover rounded-full shadow-lg">
+      @else
+        <img src="{{ asset('images/products/avocato.jpg') }}" alt="Default Image" class="w-60 h-60 object-cover rounded-full shadow-lg">
+      @endif
+    </div>
+
+    {{-- Text Content --}}
+    <div class="w-full md:w-2/3 flex flex-col gap-6 text-center md:text-left" data-aos="fade-left">
+      
+      {{-- Title --}}
+      @if($service)
+      <h2 class="text-4xl sm:text-5xl font-bold text-green-600 mb-4 uppercase">
+        {{ $service->core_services_title }}
+      </h2>
+
+      {{-- Core Services --}}
+      <div>
+        <h4 class="text-2xl font-semibold text-green-600 mb-1">{{ $service->core_services_title }}</h4>
+        <p class="text-gray-700 text-base leading-relaxed">{!! $service->core_services_content !!}</p>
+      </div>
+
+      {{-- Logistics --}}
+      <div>
+        <h4 class="text-2xl font-semibold text-green-600 mb-1">{{ $service->logistics_title }}</h4>
+        <p class="text-gray-700 text-base leading-relaxed">{{ $service->logistics_content }}</p>
+      </div>
+      @endif
+
+      {{-- Buttons --}}
+      <div class="flex gap-5 mt-2 justify-center md:justify-start">
+        <a href="{{ route('services') }}"
+           class="w-fit bg-yellow-400 hover:bg-yellow-500 text-green-600 font-semibold px-6 py-2 rounded-lg transition duration-200">
+          Read More
+        </a>
+
+        @auth
+          @if(auth()->user()->is_admin)
+            <a href="{{ route('services.edit', $service->id) }}"
+               class="bg-green-600 hover:bg-yellow-500 text-white px-4 py-2 rounded w-28 flex justify-center items-center">
+              Update
             </a>
-          </div>
-        </div>
+          @endif
+        @endauth
       </div>
     </div>
-  </div>
 
-  {{-- Export section --}}
-  <div class="py-16 bg-gray-50">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-white border border-gray-200 shadow-lg rounded-lg overflow-hidden flex flex-col lg:flex-row items-center">
-            <!-- Image Section -->
-            <div class="lg:w-1/2 flex justify-center items-center p-6" data-aos="fade-right">
-                <img src="{{ asset('images/products/export.jpg') }}" alt="Greenia Egypt"
-                     class="w-100 h-100 object-cover ">
-            </div>
+   </div>
+   </div>
 
-            <!-- Text Section -->
-            <div class="lg:w-1/2 w-full p-8 text-gray-700" data-aos="fade-left">
-                <h2 class="text-3xl font-bold text-green-600 mb-4 uppercase">{{ __('messages.greenia_title') }}</h2>
-                <p class="text-base leading-relaxed mb-4">
-                    {!! __('messages.greenia_experience') !!}
-                </p>
-                <p class="text-base leading-relaxed mb-4">
-                    {!! __('messages.greenia_markets') !!}
-                </p>
+  {{-- Export Section --}}
+  <div class="py-16 px-4 sm:px-8 flex justify-center ">
+  <div class="container max-w-6xl mx-auto  bg-gray-50 border border-gray-300 rounded-xl shadow-2xl p-10 flex flex-col md:flex-row items-center gap-8">
 
-                <a href="{{ url('/contact') }}"
-                   class="mt-4 inline-block bg-yellow-400 hover:bg-yellow-500 text-green-600 font-semibold px-6 py-2 rounded-lg transition duration-200">
-                    {{ __('messages.contact_us') }}
-                </a>
-            </div>
-        </div>
+    {{-- Image --}}
+    <div class="w-full md:w-1/3 flex justify-center items-center" data-aos="fade-right">
+      @if($export && $export->image)
+        <img src="{{ asset('storage/'.$export->image) }}" alt="{{ $export->title }}" class="w-60 h-60 object-cover rounded-full shadow-lg">
+      @else
+        <img src="{{ asset('images/products/export.jpg') }}" alt="Greenya Egypt" class="w-60 h-60 object-cover rounded-full shadow-lg">
+      @endif
     </div>
+
+    {{-- Text --}}
+    <div class="w-full md:w-2/3 flex flex-col gap-6 text-center md:text-left text-gray-700" data-aos="fade-left">
+      <h2 class="text-4xl sm:text-5xl font-bold text-green-600 mb-4 uppercase">
+        {{ $export->title ?? 'Greenya Egypt for Exporting' }}
+      </h2>
+
+      <p class="text-base leading-relaxed">
+        {!! $export->content ?? 'Default content here' !!}
+      </p>
+
+      {{-- Buttons --}}
+      <div class="flex gap-5 justify-center md:justify-start mt-2">
+        <a href="{{ url('/contact') }}"
+           class="bg-yellow-400 hover:bg-yellow-500 text-green-600 font-semibold px-6 py-2 rounded-lg transition duration-200">
+          Contact Us
+        </a>
+
+        @auth
+          @if(auth()->user()->is_admin)
+            <a href="{{ route('export.edit') }}"
+               class="bg-green-600 hover:bg-yellow-500 text-white font-semibold px-6 py-2 rounded-lg transition duration-200">
+              Update
+            </a>
+          @endif
+        @endauth
+      </div>
+    </div>
+
+  </div>
   </div>
 
   {{-- Categories Section --}}
@@ -210,6 +292,70 @@
         @endforeach
     </div>
    </div>
+
+   {{-- Certifacates Section --}}
+   <div class="py-16 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-bold text-center text-green-700 mb-10">Our Certificates</h2>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 place-items-center">
+      <!-- Certificate 1 -->
+      <img src="/images/products/cert1.jpg" alt="Certificate 1" class="h-40 rounded-full object-contain" />
+
+      <!-- Certificate 2 -->
+      <img src="/images/products/cert2.jpg" alt="Certificate 2" class="h-40  rounded-full object-contain" />
+
+      <!-- Certificate 3 -->
+      <img src="/images/products/cert3.jpg" alt="Certificate 3" class="h-40  rounded-full object-contain" />
+
+      <!-- Certificate 4 -->
+      <img src="/images/products/cert4.jpg" alt="Certificate 4" class="h-40  rounded-full object-contain" />
+
+      <!-- Certificate 5 -->
+      <img src="/images/products/cert5.jpg" alt="Certificate 5" class="h-40  rounded-full object-contain" />
+    </div>
+  </div>
+</div>
+
+   {{-- Team section  --}}
+   <div id="team" class="container mx-auto px-4 py-8">
+    <h2 class="text-3xl font-bold mb-8 text-center text-green-600">Meet Our Team</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      @foreach($employees as $employee)
+        <div class="bg-gray-100 rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:shadow-lg transition-shadow">
+            <img src="{{ $employee->image ? asset('storage/'.$employee->image) : 'https://via.placeholder.com/150' }}" 
+                alt="{{ $employee->name }}" 
+                class="w-24 h-24 border border-green-500 rounded-full mb-4 object-cover">
+            <h3 class="text-xl font-semibold">{{ $employee->name }}</h3>
+            <p class="text-gray-500">{{ $employee->role }}</p>
+            <a href="https://wa.me/{{ $employee->phone }}" target="_blank" 
+                class="mt-3 text-green-500 text-2xl hover:text-green-600">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+
+           {{-- Update&&delete --}}
+            @auth
+                @if(auth()->user()->is_admin) 
+                    <div class="mt-3 flex gap-2">
+                        <a href="{{ route('team.edit', $employee->id) }}" 
+                            class="bg-green-500 text-white px-3 py-1 rounded-full hover:bg-grren-600">Update</a>
+
+                        <form action="{{ route('team.destroy', $employee->id) }}" method="POST" 
+                              onsubmit="return confirm('Are you sure from deleting?!')">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" 
+                                    class="bg-rose-500 text-white px-3 py-1 rounded-full hover:bg-rose-400">Delete</button>
+                        </form>
+                    </div>
+                @endif
+            @endauth
+        </div>
+      @endforeach
+    </div>
+   </div>
+
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init({

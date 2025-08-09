@@ -39,12 +39,17 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'is_admin' => $request->email === 'admin@gmail.com' ? 1 : 0, 
         ]);
 
         event(new Registered($user));
 
         Auth::login($user);
 
-        return redirect(route('dashboard', absolute: false));
+        if ($user->is_admin) {
+    return redirect()->route('admin.dashboard');  // هيروح لوحة التحكم لو admin
+}
+
+return redirect()->route('home'); // المستخدم العادي هيروح الصفحة الرئيسية
     }
 }

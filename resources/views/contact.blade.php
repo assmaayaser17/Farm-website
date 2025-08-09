@@ -130,12 +130,6 @@
   </div>
 </div>
 
-
-
-
-
-
-
 {{-- WhatsApp Floating Button --}}
 <a href="https://wa.me/201000150365" target="_blank"
    class="fixed bottom-5 right-5 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg z-50 transition-all duration-300 hover:scale-110">

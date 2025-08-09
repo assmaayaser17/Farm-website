@@ -3,71 +3,90 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
-use App\Models\products;
+use App\Models\Product;
+use App\Models\About;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ServiceController;
+use App\Models\Category;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\AdminProductController;
+use App\Http\Controllers\TeamController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ExportController;
 
 
-Route::get('/',[App\Http\Controllers\HomeController::class ,'index'])->name('home');
+// Home
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
-
+// About 
 Route::get('/about', function () {
-    return view('about');
+    $about = About::first(); // يجيب أول سجل
+    return view('about', compact('about'));
 })->name('about');
 
-Route::get('/services', function () {
-    return view('services');
-})->name('services');
+Route::get('abouts/{id}', [AboutController::class, 'edit'])->name('abouts.edit');
+Route::put('abouts/{id}', [AboutController::class, 'update'])->name('abouts.update');
 
-Route::get('/test', function () {
-    return view('test');
-})->name('test');
+
+
+
+// Services
+Route::get('/services', fn() => view('services'))->name('services');
+Route::get('services/{id}/edit', [ServiceController::class, 'edit'])->name('services.edit');
+Route::put('services/{id}', [ServiceController::class, 'update'])->name('services.update');
+
+
+Route::get('/export/edit', [ExportController::class, 'edit'])->name('export.edit');
+Route::post('/export/update', [ExportController::class, 'update'])->name('export.update');
+
 
 // Language Switching
 Route::get('/lang/{locale}', [HomeController::class, 'switch'])
     ->name('lang.switch')
     ->where('locale', '[a-z]{2}');
 
+// Categories
+Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+Route::get('/categories/{id}', [CategoryController::class, 'show'])->name('categories.show');
 
-Route::get('/categories', [CategoryController::class, 'index']);
-Route::get('/categories/{id}', [CategoryController::class, 'show']);
-
+// Contact
 Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+// Products 
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
 
-Route::get('/products', [ProductController::class, 'index']);
-// Route::get('/products', function () {
-//     return view('products');
-// });
-Route::get('/create', [ProductController::class, 'create'])->name('products.create');
-Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+// Debug
+Route::get('/debug-locale', fn() => session('locale'));
 
-// Route::middleware(['auth', 'isAdmin'])->group(function () {
-//     Route::get('/admin/products', [AdminProductController::class, 'index'])->name('admin.products.index');
-//     // باقي الراوتات
-// });
+// Dashboard
+Route::middleware(['auth', 'isAdmin'])->group(function () {
+    Route::get('/admin', function () {
+        $categories = Category::all();
+        $products = Product::with('category')->get();
+        return view('dashboard', compact('categories','products'));
+    })->name('dashboard');
 
-Route::get('/debug-locale', function () {
-    return session('locale');
+    Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+    Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+    Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
+    Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
+    Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+     Route::get('/team/create', [TeamController::class, 'create'])->name('team.create');
+    Route::post('/team', [TeamController::class, 'store'])->name('team.store');
+    Route::get('/team', [TeamController::class, 'index'])->name('team.index');
+    Route::get('/team/{id}/edit', [TeamController::class, 'edit'])->name('team.edit');
+    Route::put('/team/{id}', [TeamController::class, 'update'])->name('team.update');
+    Route::delete('/team/{id}', [TeamController::class, 'destroy'])->name('team.destroy');
+});
+
+// Auth routes
+Route::middleware('web')->group(function () {
+    require __DIR__.'/auth.php';
 });
 
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-require __DIR__.'/auth.php';

@@ -88,6 +88,7 @@ return [
 'enter_email' => 'أدخل بريدك الإلكتروني',
 'subscribe' => 'اشترك',
 'rights_reserved' => 'جميع الحقوق محفوظة.',
-'dashboard' => 'لوحه التحكم'
+'dashboard' => 'لوحه التحكم',
+'our products' => 'المنتجات'
 ];
 

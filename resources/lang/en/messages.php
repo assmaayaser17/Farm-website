@@ -30,7 +30,7 @@ return [
     'contact_us' => 'Contact Us',
      'categories_title' => 'Categories',
     'categories_subtitle' => 'We Have Fresh Products',
-    'shop_now' => 'Shop Now',
+    'shop_now' => 'View More..',
     'en' => 'EN',
     'ar' => 'AR',
     'get_in_touch' => 'Get In Touch',
@@ -82,14 +82,15 @@ return [
     'contracts_supply' => 'Contracts & Supply',
     'contracts_supply_desc' => 'Contracting and Exporting with Greenya Egypt has extensive experience in the cultivation and export of the finest fresh vegetables and fruits. From our own farms directly to your global markets, we offer you products of exceptional quality and unmatched freshness, harvested and packaged with utmost care to reach you in the best condition.',
     'footer_desc' => 'We are dedicated to providing the highest quality of fresh products with the best service.',
-'quick_links' => 'Quick Links',
-'contact_info' => 'Contact Info',
-'footer_address' => 'KM 71 Desert Road, Nobareya - Abu El Matamir',
-'subscribe_newsletter' => 'Subscribe to our Newsletter',
-'enter_email' => 'Enter your email',
-'subscribe' => 'Subscribe',
-'rights_reserved' => 'All rights reserved.',
-'dashboard' => 'Dashboard'
+    'quick_links' => 'Quick Links',
+    'contact_info' => 'Contact Info',
+    'footer_address' => 'KM 71 Desert Road, Nobareya - Abu El Matamir',
+    'subscribe_newsletter' => 'Subscribe to our Newsletter',
+    'enter_email' => 'Enter your email',
+    'subscribe' => 'Subscribe',
+    'rights_reserved' => 'All rights reserved.',
+    'dashboard' => 'Dashboard',
+    'our products' => 'Our Products'
 
 
 ];
