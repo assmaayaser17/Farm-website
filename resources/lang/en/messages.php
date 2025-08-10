@@ -90,7 +90,9 @@ return [
     'subscribe' => 'Subscribe',
     'rights_reserved' => 'All rights reserved.',
     'dashboard' => 'Dashboard',
-    'our products' => 'Our Products'
+    'our products' => 'Our Products',
+    'login' => 'Login',
+    'logout' => 'Logout',
 
 
 ];

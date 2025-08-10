@@ -89,6 +89,8 @@ return [
 'subscribe' => 'اشترك',
 'rights_reserved' => 'جميع الحقوق محفوظة.',
 'dashboard' => 'لوحه التحكم',
-'our products' => 'المنتجات'
+'our products' => 'المنتجات',
+ 'login' => 'تسجيل الدخول',
+  'logout' => 'تسجيل الخروج',
 ];
 

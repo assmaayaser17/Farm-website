@@ -36,7 +36,7 @@
     <!-- Hero Content -->
     <div class="relative z-10 flex  items-center  h-full px-4 sm:px-8 text-white " dir="rtl">
       <div class="flex flex-col gap-6 max-w-xl p-4 sm:p-6 md:pt-28 text-right items-end" dir="ltr">
-    <h3 class="text-[#00d084] text-2xl sm:text-4xl font-extrabold uppercase leading-tight">
+    <h3 class="text-[#00d084] text-2xl sm:text-4xl font-extrabold uppercase leading-tight pt-20">
         <span class="text-[#00D084]">{{ __('messages.greenya') }}</span> {{ __('messages.greenya_egypt_export') }}
     </h3>
 
@@ -86,6 +86,7 @@
   </div>
   </div>
   </div>
+
   <script>
     const slides = document.querySelectorAll("#slider > div");
     let current = 0;
@@ -160,6 +161,30 @@
         </div>
     </div>
    </div>
+
+     {{-- Certifacates Section --}}
+   <div class="py-16 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-bold text-center text-green-700 mb-10">Our Certificates</h2>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 place-items-center">
+      <!-- Certificate 1 -->
+      <img src="/images/products/cert1.jpg" alt="Certificate 1" class="h-40 rounded-full object-contain" />
+
+      <!-- Certificate 2 -->
+      <img src="/images/products/cert2.jpg" alt="Certificate 2" class="h-40  rounded-full object-contain" />
+
+      <!-- Certificate 3 -->
+      <img src="/images/products/cert3.jpg" alt="Certificate 3" class="h-40  rounded-full object-contain" />
+
+      <!-- Certificate 4 -->
+      <img src="/images/products/cert4.jpg" alt="Certificate 4" class="h-40  rounded-full object-contain" />
+
+      <!-- Certificate 5 -->
+      <img src="/images/products/cert5.jpg" alt="Certificate 5" class="h-40  rounded-full object-contain" />
+    </div>
+  </div>
+</div>
  
   {{-- Services Section --}}
    <div id="services" class="py-16 px-4 sm:px-8 flex justify-center">
@@ -293,29 +318,7 @@
     </div>
    </div>
 
-   {{-- Certifacates Section --}}
-   <div class="py-16 bg-gray-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="text-3xl font-bold text-center text-green-700 mb-10">Our Certificates</h2>
-
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 place-items-center">
-      <!-- Certificate 1 -->
-      <img src="/images/products/cert1.jpg" alt="Certificate 1" class="h-40 rounded-full object-contain" />
-
-      <!-- Certificate 2 -->
-      <img src="/images/products/cert2.jpg" alt="Certificate 2" class="h-40  rounded-full object-contain" />
-
-      <!-- Certificate 3 -->
-      <img src="/images/products/cert3.jpg" alt="Certificate 3" class="h-40  rounded-full object-contain" />
-
-      <!-- Certificate 4 -->
-      <img src="/images/products/cert4.jpg" alt="Certificate 4" class="h-40  rounded-full object-contain" />
-
-      <!-- Certificate 5 -->
-      <img src="/images/products/cert5.jpg" alt="Certificate 5" class="h-40  rounded-full object-contain" />
-    </div>
-  </div>
-</div>
+ 
 
    {{-- Team section  --}}
    <div id="team" class="container mx-auto px-4 py-8">
