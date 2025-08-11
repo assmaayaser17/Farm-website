@@ -92,7 +92,6 @@ return [
 'our products' => 'المنتجات',
  'login' => 'تسجيل الدخول',
 'logout' => 'تسجيل الخروج',
-'certificates' => 'الشهادات',
-
+'certificates' => 'شهادتنا'
 ];
 

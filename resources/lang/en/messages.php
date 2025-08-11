@@ -93,8 +93,5 @@ return [
     'our products' => 'Our Products',
     'login' => 'Login',
     'logout' => 'Logout',
-    'certificates' => 'Certificates',
-
-
-
+    'certificates' => 'Our Certificates',
 ];
