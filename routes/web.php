@@ -28,9 +28,6 @@ Route::get('/about', function () {
 Route::get('abouts/{id}', [AboutController::class, 'edit'])->name('abouts.edit');
 Route::put('abouts/{id}', [AboutController::class, 'update'])->name('abouts.update');
 
-
-
-
 // Services
 Route::get('/services', fn() => view('services'))->name('services');
 Route::get('services/{id}/edit', [ServiceController::class, 'edit'])->name('services.edit');

@@ -28,6 +28,7 @@
         <ul class="hidden md:flex gap-6 items-center">
             <li><a href="/" class="relative group text-lg md:text-xl font-medium text-green-600">{{ __('messages.home') }}</a></li>
             <li><a href="/about" class="relative group text-lg md:text-xl font-medium text-green-600">{{ __('messages.about_us') }}</a></li>
+            <li> <a href="{{ url('/#certificates') }}" class="relative group text-lg md:text-xl font-medium text-green-600">{{ __('messages.certificates') }}</a> </li>
             <li><a href="/services" class="relative group text-lg md:text-xl font-medium text-green-600">{{ __('messages.services') }}</a></li>
             <li><a href="/contact" class="relative group text-lg md:text-xl font-medium text-green-600">{{ __('messages.contact_us') }}</a></li>
             <li><a href="{{ route('categories.index') }}" class="relative group text-lg md:text-xl font-medium text-green-600">{{ __('messages.our products') }}</a></li>

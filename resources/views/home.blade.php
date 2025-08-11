@@ -34,58 +34,58 @@
     <div class="absolute inset-0 bg-black/50"></div>
 
     <!-- Hero Content -->
-    <div class="relative z-10 flex  items-center  h-full px-4 sm:px-8 text-white " dir="rtl">
-      <div class="flex flex-col gap-6 max-w-xl p-4 sm:p-6 md:pt-28 text-right items-end" dir="ltr">
-    <h3 class="text-[#00d084] text-2xl sm:text-4xl font-extrabold uppercase leading-tight pt-20">
-        <span class="text-[#00D084]">{{ __('messages.greenya') }}</span> {{ __('messages.greenya_egypt_export') }}
-    </h3>
+    <div class="relative z-10 flex items-center h-full px-4 sm:px-8 text-white" dir="ltr">
+        <div class="flex flex-col gap-6 max-w-xl p-4 sm:p-6 md:pt-28 text-left items-start">
+            <h3 class="text-[#00d084] text-2xl sm:text-4xl font-extrabold uppercase leading-tight pt-20">
+                <span class="text-[#00D084]">{{ __('messages.greenya') }}</span> {{ __('messages.greenya_egypt_export') }}
+            </h3>
 
-    <h1 class="text-2xl sm:text-4xl md:text-5xl font-bold leading-tight">
-        {!! __('messages.your_source') !!}
-    </h1>
+            <h1 class="text-2xl sm:text-4xl md:text-5xl font-bold leading-tight">
+                {!! __('messages.your_source') !!}
+            </h1>
 
-    <p class="text-lg sm:text-xl font-medium leading-relaxed">
-        {{ __('messages.greenya_desc') }}
-    </p>
+            <p class="text-lg sm:text-xl font-medium leading-relaxed">
+                {{ __('messages.greenya_desc') }}
+            </p>
 
-    <!-- Buttons -->
-    <div class="flex gap-4 flex-wrap justify-end w-full">
-        <a href="{{ url('/views.products') }}"
-           class="bg-white hover:bg-[#00D084] hover:text-white px-6 sm:px-10 py-2 sm:py-3 rounded-3xl text-[#00D084] text-base font-semibold shadow-md transition">
-            {{ __('messages.watch_video') }}
-        </a>
+            <!-- Buttons -->
+            <div class="flex gap-4 flex-wrap justify-start w-full">
+                <a href="{{ url('/views.products') }}"
+                   class="bg-white hover:bg-[#00D084] hover:text-white px-6 sm:px-10 py-2 sm:py-3 rounded-3xl text-[#00D084] text-base font-semibold shadow-md transition">
+                    {{ __('messages.watch_video') }}
+                </a>
 
-        <a href="{{ url('/contact') }}"
-           class="bg-[#00D084] text-white border border-green-500 hover:bg-black hover:text-[#00D084] px-6 sm:px-10 py-2 sm:py-3 rounded-3xl text-base font-semibold shadow-md transition">
-            {{ __('messages.contact_us') }}
-        </a>
+                <a href="{{ url('/contact') }}"
+                   class="bg-[#00D084] text-white border border-green-500 hover:bg-black hover:text-[#00D084] px-6 sm:px-10 py-2 sm:py-3 rounded-3xl text-base font-semibold shadow-md transition">
+                    {{ __('messages.contact_us') }}
+                </a>
+            </div>
+
+            <!-- Social Icons -->
+            <div class="flex items-center justify-start gap-10 mt-4 w-full">
+                <a href="https://www.facebook.com/your-page" target="_blank"
+                   class="w-10 h-10 flex items-center justify-center rounded-full bg-white/20 hover:bg-[#00D084] transition text-white hover:text-white">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+
+                <a href="https://www.instagram.com/your-page" target="_blank"
+                   class="w-10 h-10 flex items-center justify-center rounded-full bg-white/20 hover:bg-[#00D084] transition text-white hover:text-white">
+                    <i class="fab fa-instagram"></i>
+                </a>
+
+                <a href="https://www.linkedin.com/in/your-page" target="_blank"
+                   class="w-10 h-10 flex items-center justify-center rounded-full bg-white/20 hover:bg-[#00D084] transition text-white hover:text-white">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+
+                <a href="https://maps.google.com/?q=your-location" target="_blank"
+                   class="w-10 h-10 flex items-center justify-center rounded-full bg-white/20 hover:bg-[#00D084] transition text-white hover:text-white">
+                    <i class="fas fa-map-marker-alt"></i>
+                </a>
+            </div>
+        </div>
     </div>
-
-    <!-- Social Icons -->
-    <div class="flex items-center justify-end gap-10 mt-4 w-full">
-        <a href="https://www.facebook.com/your-page" target="_blank"
-           class="w-10 h-10 flex items-center justify-center rounded-full bg-white/20 hover:bg-[#00D084] transition text-white hover:text-white">
-            <i class="fab fa-facebook-f"></i>
-        </a>
-
-        <a href="https://www.instagram.com/your-page" target="_blank"
-           class="w-10 h-10 flex items-center justify-center rounded-full bg-white/20 hover:bg-[#00D084] transition text-white hover:text-white">
-            <i class="fab fa-instagram"></i>
-        </a>
-
-        <a href="https://www.linkedin.com/in/your-page" target="_blank"
-           class="w-10 h-10 flex items-center justify-center rounded-full bg-white/20 hover:bg-[#00D084] transition text-white hover:text-white">
-            <i class="fab fa-linkedin-in"></i>
-        </a>
-
-        <a href="https://maps.google.com/?q=your-location" target="_blank"
-           class="w-10 h-10 flex items-center justify-center rounded-full bg-white/20 hover:bg-[#00D084] transition text-white hover:text-white">
-            <i class="fas fa-map-marker-alt"></i>
-        </a>
-    </div>
-  </div>
-  </div>
-  </div>
+</div>
 
   <script>
     const slides = document.querySelectorAll("#slider > div");
@@ -161,44 +161,10 @@
         </div>
     </div>
    </div>
-
-     {{-- Certifacates Section --}}
-   <div class="py-16 bg-gray-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="text-3xl font-bold text-center text-green-700 mb-10">Our Certificates</h2>
-
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 place-items-center">
-      <!-- Certificate 1 -->
-      <img src="/images/products/cert1.jpg" alt="Certificate 1" class="h-40 rounded-full object-contain" />
-
-      <!-- Certificate 2 -->
-      <img src="/images/products/cert2.jpg" alt="Certificate 2" class="h-40  rounded-full object-contain" />
-
-      <!-- Certificate 3 -->
-      <img src="/images/products/cert3.jpg" alt="Certificate 3" class="h-40  rounded-full object-contain" />
-
-      <!-- Certificate 4 -->
-      <img src="/images/products/cert4.jpg" alt="Certificate 4" class="h-40  rounded-full object-contain" />
-
-      <!-- Certificate 5 -->
-      <img src="/images/products/cert5.jpg" alt="Certificate 5" class="h-40  rounded-full object-contain" />
-    </div>
-  </div>
-</div>
  
   {{-- Services Section --}}
    <div id="services" class="py-16 px-4 sm:px-8 flex justify-center">
    <div class="container max-w-6xl mx-auto bg-gray-100 border border-gray-300 rounded-xl shadow-2xl p-10 flex flex-col md:flex-row items-center gap-8">
-
-    {{-- Image --}}
-    <div class="w-full md:w-1/3 flex justify-center items-center" data-aos="fade-right">
-      {{-- @if($service->image) --}}
-      @if($service && $service->image)
-        <img src="{{ asset('storage/'.$service->image) }}" alt="Our Services" class="w-60 h-60 object-cover rounded-full shadow-lg">
-      @else
-        <img src="{{ asset('images/products/avocato.jpg') }}" alt="Default Image" class="w-60 h-60 object-cover rounded-full shadow-lg">
-      @endif
-    </div>
 
     {{-- Text Content --}}
     <div class="w-full md:w-2/3 flex flex-col gap-6 text-center md:text-left" data-aos="fade-left">
@@ -240,21 +206,22 @@
       </div>
     </div>
 
+      {{-- Image --}}
+    <div class="w-full md:w-1/3 flex justify-center items-center" data-aos="fade-right">
+      {{-- @if($service->image) --}}
+      @if($service && $service->image)
+        <img src="{{ asset('storage/'.$service->image) }}" alt="Our Services" class="w-60 h-60 object-cover rounded-full shadow-lg">
+      @else
+        <img src="{{ asset('images/products/avocato.jpg') }}" alt="Default Image" class="w-60 h-60 object-cover rounded-full shadow-lg">
+      @endif
+    </div>
+
    </div>
    </div>
 
   {{-- Export Section --}}
   <div class="py-16 px-4 sm:px-8 flex justify-center ">
   <div class="container max-w-6xl mx-auto  bg-gray-50 border border-gray-300 rounded-xl shadow-2xl p-10 flex flex-col md:flex-row items-center gap-8">
-
-    {{-- Image --}}
-    <div class="w-full md:w-1/3 flex justify-center items-center" data-aos="fade-right">
-      @if($export && $export->image)
-        <img src="{{ asset('storage/'.$export->image) }}" alt="{{ $export->title }}" class="w-60 h-60 object-cover rounded-full shadow-lg">
-      @else
-        <img src="{{ asset('images/products/export.jpg') }}" alt="Greenya Egypt" class="w-60 h-60 object-cover rounded-full shadow-lg">
-      @endif
-    </div>
 
     {{-- Text --}}
     <div class="w-full md:w-2/3 flex flex-col gap-6 text-center md:text-left text-gray-700" data-aos="fade-left">
@@ -284,6 +251,14 @@
       </div>
     </div>
 
+      {{-- Image --}}
+    <div class="w-full md:w-1/3 flex justify-center items-center" data-aos="fade-right">
+      @if($export && $export->image)
+        <img src="{{ asset('storage/'.$export->image) }}" alt="{{ $export->title }}" class="w-60 h-60 object-cover rounded-full shadow-lg">
+      @else
+        <img src="{{ asset('images/products/export.jpg') }}" alt="Greenya Egypt" class="w-60 h-60 object-cover rounded-full shadow-lg">
+      @endif
+    </div>
   </div>
   </div>
 
@@ -291,7 +266,7 @@
   @php
     $bgColors = ['bg-green-100', 'bg-blue-100', 'bg-yellow-100', 'bg-pink-100', 'bg-purple-100', 'bg-orange-100'];
   @endphp
-   <div class="container bg-green-100 mx-auto px-4 py-8">
+   <div  class="container bg-green-100 mx-auto px-4 py-8">
     <h1 class="text-3xl font-bold mb-8 text-center text-green-700">{{ __('messages.categories_title') }}</h1>
     <div class="flex flex-wrap justify-center gap-6">
         @foreach ($categories as $index => $category)
@@ -318,7 +293,29 @@
     </div>
    </div>
 
- 
+    {{-- Certifacates Section --}}
+   <div id="certificates" class="py-16 bg-gray-50">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-bold text-center text-green-700 mb-10">Our Certificates</h2>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 place-items-center">
+      <!-- Certificate 1 -->
+      <img src="/images/products/cert1.jpg" alt="Certificate 1" class="h-40 rounded-full object-contain" />
+
+      <!-- Certificate 2 -->
+      <img src="/images/products/cert2.jpg" alt="Certificate 2" class="h-40  rounded-full object-contain" />
+
+      <!-- Certificate 3 -->
+      <img src="/images/products/cert3.jpg" alt="Certificate 3" class="h-40  rounded-full object-contain" />
+
+      <!-- Certificate 4 -->
+      <img src="/images/products/cert4.jpg" alt="Certificate 4" class="h-40  rounded-full object-contain" />
+
+      <!-- Certificate 5 -->
+      <img src="/images/products/cert5.jpg" alt="Certificate 5" class="h-40  rounded-full object-contain" />
+    </div>
+   </div>
+   </div>
 
    {{-- Team section  --}}
    <div id="team" class="container mx-auto px-4 py-8">

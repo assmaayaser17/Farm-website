@@ -91,6 +91,8 @@ return [
 'dashboard' => 'لوحه التحكم',
 'our products' => 'المنتجات',
  'login' => 'تسجيل الدخول',
-  'logout' => 'تسجيل الخروج',
+'logout' => 'تسجيل الخروج',
+'certificates' => 'الشهادات',
+
 ];
 

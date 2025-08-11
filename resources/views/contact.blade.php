@@ -11,10 +11,10 @@
       height: 100%;
     }
 
-    body {
+    /* body {
       background: url('{{ asset('images/products/backgroundcontact.jpg') }}') no-repeat center center fixed;
       background-size: cover;
-    }
+    } */
 
     @keyframes bounce-in-up {
       0% {
@@ -41,7 +41,7 @@
 
 
 {{-- Contact Card --}}
-<div class="max-w-4xl ms-auto bg-gray-50 shadow-lg rounded-xl p-6 sm:p-10 space-y-8 mt-32" dir="ltr">
+<div class="max-w-4xl bg-gray-50 shadow-lg rounded-xl p-6 sm:p-10 space-y-8 mt-32" dir="ltr">
 
   {{-- Title --}}
   <h2 class="text-4xl font-bold text-green-600 text-center">{{ __('messages.get_in_touch') }}</h2>
@@ -104,29 +104,27 @@
 
       <form action="{{ route('contact.submit') }}" method="POST" 
       class="space-y-4 animate-bounce-in-up flex flex-col {{ app()->getLocale() == 'ar' ? 'text-right' : 'text-left' }}">
-    @csrf
+        @csrf
 
-    <input type="text" name="name" placeholder="{{ __('messages.your_name') }}"
-           class="w-full px-4 py-2 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-400 {{ app()->getLocale() == 'ar' ? 'text-right' : 'text-left' }}" required>
+        <input type="text" name="name" placeholder="{{ __('messages.your_name') }}"
+               class="w-full px-4 py-2 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-400 {{ app()->getLocale() == 'ar' ? 'text-right' : 'text-left' }}" required>
 
-    <input type="email" name="email" placeholder="{{ __('messages.your_email') }}"
-           class="w-full px-4 py-2 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-400 {{ app()->getLocale() == 'ar' ? 'text-right' : 'text-left' }}" required>
+        <input type="email" name="email" placeholder="{{ __('messages.your_email') }}"
+               class="w-full px-4 py-2 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-400 {{ app()->getLocale() == 'ar' ? 'text-right' : 'text-left' }}" required>
 
-    <input type="text" name="phone" placeholder="{{ __('messages.phone_number') }}"
-           class="w-full px-4 py-2 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-400 {{ app()->getLocale() == 'ar' ? 'text-right' : 'text-left' }}" required>
+        <input type="text" name="phone" placeholder="{{ __('messages.phone_number') }}"
+               class="w-full px-4 py-2 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-400 {{ app()->getLocale() == 'ar' ? 'text-right' : 'text-left' }}" required>
 
-    <textarea name="message" rows="4" placeholder="{{ __('messages.your_message') }}"
-              class="w-full px-4 py-2 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-400 {{ app()->getLocale() == 'ar' ? 'text-right' : 'text-left' }}" required></textarea>
+        <textarea name="message" rows="4" placeholder="{{ __('messages.your_message') }}"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-green-400 {{ app()->getLocale() == 'ar' ? 'text-right' : 'text-left' }}" required></textarea>
 
-    <button type="submit"
-            class="bg-[#00d084] hover:bg-green-700 text-white font-semibold px-4 py-2 rounded-2xl transition duration-200
-            {{ app()->getLocale() == 'ar' ? 'self-end' : 'self-start' }}">
-        {{ __('messages.send_message') }}
-    </button>
-</form>
-
+        <button type="submit"
+                class="bg-[#00d084] hover:bg-green-700 text-white font-semibold px-4 py-2 rounded-2xl transition duration-200
+                {{ app()->getLocale() == 'ar' ? 'self-end' : 'self-start' }}">
+            {{ __('messages.send_message') }}
+        </button>
+      </form>
     </div>
-
   </div>
 </div>
 
@@ -135,4 +133,5 @@
    class="fixed bottom-5 right-5 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg z-50 transition-all duration-300 hover:scale-110">
   <i class="fab fa-whatsapp text-2xl"></i>
 </a>
+
 @endsection
