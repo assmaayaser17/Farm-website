@@ -12,20 +12,32 @@
             text-align: left;
         }
     </style>
+      <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
+
+
+<style>
+    body {
+        font-family: 'Gotham', sans-serif
+       
+    }
+</style>
+  
+   
+
 </head>
 
 <body class="bg-gray-100">
     {{-- Navbar --}}
     <nav id="navbar" class="fixed top-0 left-0 w-full z-50 px-6 py-4 border-b bg-white/80 backdrop-blur-md transition-all duration-500">
-    <div class="max-w-7xl mx-auto flex justify-between items-center relative">
+    <div class=" flex justify-around items-center relative">
 
         <!-- Logo -->
-        <a href="/" class="flex items-center space-x-2">
+        <a href="/" class="flex items-center space-x-5">
             <span class="text-2xl md:text-4xl font-bold text-green-600">{{ __('messages.greenya') }}</span>
         </a>
 
         <!-- Desktop Menu -->
-        <ul class="hidden md:flex gap-6 items-center">
+        <ul class="hidden md:flex gap-6 items-center ">
             <li><a href="/" class="relative group text-lg md:text-xl font-medium text-green-600">{{ __('messages.home') }}</a></li>
             <li><a href="/about" class="relative group text-lg md:text-xl font-medium text-green-600">{{ __('messages.about_us') }}</a></li>
             <li> <a href="{{ url('/#certificates') }}" class="relative group text-lg md:text-xl font-medium text-green-600">{{ __('messages.certificates') }}</a> </li>

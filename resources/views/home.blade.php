@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-m...==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+   
   <style>
     .bg-slider {
       background-size: cover;
@@ -16,6 +16,8 @@
       transition: opacity 1s ease-in-out;
     }
   </style>
+
+
 </head>
 
 <section>
@@ -36,8 +38,8 @@
     <!-- Hero Content -->
     <div class="relative z-10 flex items-center h-full px-4 sm:px-8 text-white" dir="ltr">
         <div class="flex flex-col gap-6 max-w-xl p-4 sm:p-6 md:pt-28 text-left items-start">
-            <h3 class="text-[#00d084] text-2xl sm:text-4xl font-extrabold uppercase leading-tight pt-20">
-                <span class="text-[#00D084]">{{ __('messages.greenya') }}</span> {{ __('messages.greenya_egypt_export') }}
+            <h3 class="text-[#00d084] text-2xl sm:text-4xl font-extrabold  leading-tight pt-20">
+                {{ __('messages.greenya_egypt_export') }}
             </h3>
 
             <h1 class="text-2xl sm:text-4xl md:text-5xl font-bold leading-tight">
@@ -85,8 +87,7 @@
             </div>
         </div>
     </div>
-</div>
-
+  </div>
   <script>
     const slides = document.querySelectorAll("#slider > div");
     let current = 0;
@@ -162,7 +163,7 @@
     </div>
    </div>
  
-  {{-- Services Section --}}
+   {{-- Services Section --}}
    <div id="services" class="py-16 px-4 sm:px-8 flex justify-center">
    <div class="container max-w-6xl mx-auto bg-gray-100 border border-gray-300 rounded-xl shadow-2xl p-10 flex flex-col md:flex-row items-center gap-8">
 
@@ -219,7 +220,7 @@
    </div>
    </div>
 
-  {{-- Export Section --}}
+   {{-- Export Section --}}
   <div class="py-16 px-4 sm:px-8 flex justify-center ">
   <div class="container max-w-6xl mx-auto  bg-gray-50 border border-gray-300 rounded-xl shadow-2xl p-10 flex flex-col md:flex-row items-center gap-8">
 
@@ -329,7 +330,7 @@
                 class="w-24 h-24 border border-green-500 rounded-full mb-4 object-cover">
             <h3 class="text-xl font-semibold">{{ $employee->name }}</h3>
             <p class="text-gray-500">{{ $employee->role }}</p>
-            <a href="https://wa.me/{{ $employee->phone }}" target="_blank" 
+            <a href="https://wa.me/{{ str_replace(['+', ' '], '', $employee->phone) }}" target="_blank" 
                 class="mt-3 text-green-500 text-2xl hover:text-green-600">
                 <i class="fab fa-whatsapp"></i>
             </a>
