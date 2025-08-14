@@ -19,8 +19,6 @@
                 Admin Dashboard
                 <!-- Close btn (Mobile Only) -->
                 <button data-action="closeSidebar" class="relative z-50 md:hidden text-2xl font-bold text-gray-700 hover:text-green-600">&times;</button>
-
-                {{-- <button id="closeSidebar" class="md:hidden text-2xl font-bold text-gray-700 hover:text-green-600">&times;</button> --}}
             </div>
 
             <nav class="px-4 py-2 space-y-2">

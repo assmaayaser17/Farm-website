@@ -15,13 +15,12 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ExportController;
 
-
 // Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // About 
 Route::get('/about', function () {
-    $about = About::first(); // يجيب أول سجل
+    $about = About::first(); 
     return view('about', compact('about'));
 })->name('about');
 
@@ -33,10 +32,9 @@ Route::get('/services', fn() => view('services'))->name('services');
 Route::get('services/{id}/edit', [ServiceController::class, 'edit'])->name('services.edit');
 Route::put('services/{id}', [ServiceController::class, 'update'])->name('services.update');
 
-
+// Export
 Route::get('/export/edit', [ExportController::class, 'edit'])->name('export.edit');
 Route::post('/export/update', [ExportController::class, 'update'])->name('export.update');
-
 
 // Language Switching
 Route::get('/lang/{locale}', [HomeController::class, 'switch'])

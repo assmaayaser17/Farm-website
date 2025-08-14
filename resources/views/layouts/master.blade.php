@@ -13,17 +13,13 @@
         }
     </style>
       <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <style>
 
-
-<style>
     body {
-        font-family: 'Gotham', sans-serif
-       
+        font-family: 'Gotham', sans-serif 
     }
 </style>
   
-   
-
 </head>
 
 <body class="bg-gray-100">

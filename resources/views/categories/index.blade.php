@@ -2,7 +2,6 @@
 
 @section('content')
 
-
   {{-- Categories Section --}}
   @php
     $bgColors = ['bg-green-100', 'bg-blue-100', 'bg-yellow-100', 'bg-pink-100', 'bg-purple-100', 'bg-orange-100'];
@@ -28,11 +27,10 @@
                     <a href="{{ route('categories.show', $category->id) }}"
    class="mt-2 inline-block bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-3xl transition w-fit">
     {{ __('messages.shop_now') }}
-</a>
-</div>
-</div>
-@endforeach
-</div>
-</div>
-
+  </a>
+  </div>
+  </div>
+  @endforeach
+  </div>
+  </div>
 @endsection
