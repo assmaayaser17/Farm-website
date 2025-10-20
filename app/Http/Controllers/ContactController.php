@@ -23,7 +23,7 @@ class ContactController extends Controller
 
         Contact::create($validated);
 
-        Mail::to('assmaayaser176@gmail.com')->send(new ContactFormMail($validated));
+        Mail::to('info@greenya-egypt.com')->send(new ContactFormMail($validated));
 
         return back()->with('success', 'Your message has been sent and saved successfully!');
     }

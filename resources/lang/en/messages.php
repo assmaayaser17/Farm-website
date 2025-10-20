@@ -9,7 +9,7 @@ return [
     'quick_links' => 'Quick Links',
     'footer_desc' => 'We provide the best agricultural products and services to meet your needs.',
     'greenya_egypt_export' => 'Greenya Egypt For Export',
-    'your_source' => 'Your Source for Fresh <span class="text-green-400">Organic</span> Products',
+    'your_source' => 'Your Source for Fresh <span class="text-green-400">Conventional and Organic</span> Products',
     'greenya_desc' => 'Egypt for Export is an Egyptian owned company dealing with growing, packing and exporting fresh fruits, vegetables',
     'watch_video' => 'Watch Video',
     'contact_us' => 'Contact Us',
